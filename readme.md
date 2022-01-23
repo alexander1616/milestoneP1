@@ -4,8 +4,7 @@
 
 Tower Defense Game:
 
-The enemies will move in a predetermined path to the end point. Once a certain numbers of enemies sucessfully reach the end point, the game will end! You can create towers with gold earned at the end of every round to impede the enemies from reaching the end point.
-
+The objective of the game is to stay alive and prevent the enemies from reaching the end point for as long as possible. Each round, the number of enemies will increase and stronger enemies will be added every 10 rounds. After 20 enemies reach the end point, the game will end. You are allowed to purchase blocks to alter their predetermined path, and you are also able to purchase 
 ## Game Logic
 
 ```
