@@ -36,7 +36,7 @@ The player will lose once 20 enemies have succesfully reached their goal.
 | Date | Goals |
 | ---- | ----- |
 | Sun. 01/23 | Create GitHub repository. Complete README.md. |
-| Tue. 01/25 |      |
+| Tue. 01/25 | Create index.html, javascript, gameboard, code an enemy     |
 | Thu. 01/27 |      |
 | Sun. 01/30 |      |
 | Tue. 02/01 |      |
