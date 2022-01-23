@@ -2,34 +2,37 @@
 
 ## Project Description
 
-Tower Defense Game:
+Duck Hunt Game:
 
-The objective of the game is to stay alive and prevent the enemies from reaching the end point for as long as possible. Each round, the number of enemies will increase and stronger enemies will be added every 10 rounds. After 20 enemies reach the end point, the game will end. You are allowed to purchase blocks to alter their predetermined path, and you are also able to purchase towers to impede the enemies progress. Good luck!
+The objective of the game is to stay alive and prevent the enemies from reaching the end point for as long as possible. Each round, the number of enemies will increase and stronger enemies will be added every 10 rounds. After 20 enemies reach the end point, the game will end. You are able to click and remove the "ducks" before they reach the end. Good luck!
 
 ## Game Logic
 
 ```
-The game board looks like a monocolor checkers board.
-The enemies walk from the spawn points to the end point, from one side of the board to the other.
-The enemies' path is highlighted in a different color than the board.
-The player is able to place blocks that alter the path of the enemies.
-The player is able to place towers to destroy the enemies.
-The player will lose once 20 enemies have succesfully reached their goal.
+Enemies start from the left side of the screen and walk themselves to the right side of the screen.
+Once an enemy reaches the edge of the screen, you are deducted 1 health.
+The game ends when your health reaches 0.
+Players are able to remove a duck by clicking on them.
+The number of ducks increase every round, and there are an infinite number of rounds.
+Any ducks that don't get removed will stay and be added onto the next round.
+Ducks will be generated randomly from the top of the screen all the way to the bottom, but will always be generated from the left side of the screen and will always move towards the right side of the screen.
+The game will track how many ducks you removed, and how many rounds you survive.
 ```
 
 ## Deliverables
 
 ### MVP Criteria
 
-- One thing my game must do to meet my minimum standard.
-- Another thing.
-- Etc.
+- Lose condition (Health reaches 0)
+- Tracking ducks removed
+- Tracking rounds played
+- Ducks automatically walking from left to right
+- Ducks will screen wrap when walking off screen to the right
 
 ### Post-MVP Plans
 
-- One great idea I hope to be able to add in before the project deadline.
-- Another that will be a stretch.
-- Something else I don't technically know how to do... *yet*. :)
+- I'd like to add in some blocks / obstacles to impede duck movement / obsctruct the walking path
+- I'd like to create a maze the ducks have to walk through so I have more time to click all the ducks
 
 ## Project Planning
 
