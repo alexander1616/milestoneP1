@@ -4,16 +4,17 @@
 
 Tower Defense Game:
 
-The objective of the game is to stay alive and prevent the enemies from reaching the end point for as long as possible. Each round, the number of enemies will increase and stronger enemies will be added every 10 rounds. After 20 enemies reach the end point, the game will end. You are allowed to purchase blocks to alter their predetermined path, and you are also able to purchase 
+The objective of the game is to stay alive and prevent the enemies from reaching the end point for as long as possible. Each round, the number of enemies will increase and stronger enemies will be added every 10 rounds. After 20 enemies reach the end point, the game will end. You are allowed to purchase blocks to alter their predetermined path, and you are also able to purchase towers to impede the enemies progress. Good luck!
+
 ## Game Logic
 
 ```
-Replace this text with pseudocode.
-The pseudocode should describe in plain, simple language the logic of the game.
-Describe the logic involved in player decisions. 
-  - What are the choices available to the player? 
-  - What happens when the player makes a choice?
-Describe the logic that evaluates the player's victory/loss/progress status.
+The game board looks like a monocolor checkers board.
+The enemies walk from the spawn points to the end point, from one side of the board to the other.
+The enemies' path is highlighted in a different color than the board.
+The player is able to place blocks that alter the path of the enemies.
+The player is able to place towers to destroy the enemies.
+The player will lose once 20 enemies have succesfully reached their goal.
 ```
 
 ## Deliverables
