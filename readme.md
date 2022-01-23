@@ -2,7 +2,9 @@
 
 ## Project Description
 
-_(Replace this text with a brief description of your game and what inspired you to make it.)_
+Tower Defense Game:
+
+The enemies will move in a predetermined path to the end point. Once a certain numbers of enemies sucessfully reach the end point, the game will end! You can create towers with gold earned at the end of every round to impede the enemies from reaching the end point.
 
 ## Game Logic
 
