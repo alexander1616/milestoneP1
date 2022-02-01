@@ -1,28 +1,54 @@
-function newImage(source, leftVal, botVal) {
-    let newImage = document.createElement('img');
-    newImage.src = source;
-    newImage.style.position = 'fixed';
-    newImage.style.left = leftVal;
-    newImage.style.bottom = botVal;
-    document.body.append(newImage);
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+ctx.font = '50px serif';
+ctx.fillText('Hello world', 50, 90);
+
+class Duck {
+    constructor() {
+        this.width = 100;
+        this.height = 100;
+        this.x = canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.directionX = 20;
+    }
+    update() {
+        this.x = this.x - this.directionX;
+    }
+    draw() {
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
 }
 
-function newItem(source, leftVal, botVal){
-    let newItem = document.createElement('img')
-    newItem.src = source
-    newItem.style.position = 'fixed'
-    newItem.style.left = leftVal
-    newItem.style.bottom = botVal
-    document.body.append(newItem)
-    
-    newItem.addEventListener('dblclick', function(){
-        newItem.remove()
-    })
+let health = 10;
+var duck = new Duck();
+let ducks = [];
+
+function newDuck() {
+    if (health > 0) {
+        ducks.push(new Duck());
+    }
+
+    for (let i = 0; i < ducks.length; i++) {
+        ducks[i].update();
+        ducks[i].draw();
+
+    }
 }
 
+function start(time) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-newImage('assets/green-character.gif', '100px', '100px');
-newImage('assets/red-character.gif', '300px', '400px');
+    var rand = Math.floor(Math.random() * (6000000) + 5);
+    setTimeout(newDuck(), rand*100000);
+    requestAnimationFrame(start);
+}
 
-newItem('assets/shield.png', '100px', '200px');
-newItem('assets/sword.png', '400px', '400px');
+/* game end criteria: if health goes to zero
+health decreases if duck's x position is at 0
+click to remove duck / pause it's position
+score increases every duck you pause/remove
+*/
+start(0)
