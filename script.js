@@ -16,6 +16,9 @@ class Duck {
     }
     update() {
         this.x = this.x - this.directionX;
+        if(this.x < 0) {
+            health--;
+        }
     }
     draw() {
         ctx.fillRect(this.x, this.y, this.width, this.height);
@@ -34,16 +37,19 @@ function newDuck() {
     for (let i = 0; i < ducks.length; i++) {
         ducks[i].update();
         ducks[i].draw();
-
+       
     }
+
+
 }
 
 function start(time) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     var rand = Math.floor(Math.random() * (6000000) + 5);
-    setTimeout(newDuck(), rand*100000);
+    setTimeout(newDuck(), 10000);
     requestAnimationFrame(start);
+    
 }
 
 /* game end criteria: if health goes to zero
@@ -51,4 +57,4 @@ health decreases if duck's x position is at 0
 click to remove duck / pause it's position
 score increases every duck you pause/remove
 */
-start(0)
+start(0);
