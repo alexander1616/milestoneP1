@@ -1,10 +1,7 @@
-const canvas = document.getElementById('canvas');
+/*const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
-ctx.font = '50px serif';
-ctx.fillText('Hello world', 50, 90);
 
 class Duck {
     constructor() {
@@ -12,15 +9,37 @@ class Duck {
         this.height = 100;
         this.x = canvas.width;
         this.y = Math.random() * canvas.height;
-        this.directionX = 20;
+        this.directionX = 10;
+        this.movement = true;
+        canvas.addEventListener('click', function (event){
+            var x = event.pageX;
+            var y = event.pageY;
+            console.log('Coordinate' + x);
+        })
     }
+
     update() {
         this.x = this.x - this.directionX;
-        if(this.x < 0) {
+        if (this.x < 0) {
             health--;
         }
     }
+
+    autoupdate() {
+        setInterval(() => {
+          //  console.log('Autoupdate');
+            if (this.movement) {
+                this.x = this.x - this.directionX;
+                this.draw();
+                if (this.x < 0) {
+                    this.movement = false;
+                }
+            }
+        }, 1000);
+    }
+
     draw() {
+       // console.log('Draw Method');
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 }
@@ -33,28 +52,41 @@ function newDuck() {
     if (health > 0) {
         ducks.push(new Duck());
     }
-
     for (let i = 0; i < ducks.length; i++) {
+       // console.log(ducks[i]);
         ducks[i].update();
         ducks[i].draw();
-       
     }
-
-
 }
 
-function start(time) {
+function start() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    var rand = Math.floor(Math.random() * (6000000) + 5);
-    setTimeout(newDuck(), 10000);
+    newDuck();
+    //setTimeout(newDuck(), 10000);
+    //var rand = Math.floor(Math.random() * (6000) + 5);
+    setTimeout(()=>{
+        console.log('Timeout Running');
+        newDuck();
+    }, 10000);
     requestAnimationFrame(start);
-    
 }
 
-/* game end criteria: if health goes to zero
-health decreases if duck's x position is at 0
+
 click to remove duck / pause it's position
 score increases every duck you pause/remove
-*/
+
 start(0);
+*/
+
+let hero = document.getElementById('hero');
+let enemy = document.getElementById('enemy');
+
+hero.addEventListener('click', function(){
+    hero.classList.add('jumping');
+    if hero.compareDocumentPosition.left
+    getBoundingClientRect());
+})
+
+hero.addEventListener('animationend', function(){
+    hero.classList.remove('jumping');
+})
