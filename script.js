@@ -90,6 +90,7 @@ hero.addEventListener('click', function(){
 //Removing the jumping class on the hero after animation ends
 hero.addEventListener('animationend', function(){
     hero.classList.remove('jumping');
+    jumps.innerText++;
 })
 
 //set intervals to find x values for hero, enemy, and top value for hero
@@ -101,7 +102,12 @@ setInterval(function(){
     let heroTop = parseInt(window.getComputedStyle(hero).getPropertyValue('top'));
 
     if(enemyX < 50 && heroTop > 300) {
-        alert("Oops game over");
+        alert("Game over! Play again?");
+        location.reload();
+    }
+    
+    if (jumps.innerText == 10){
+        alert("Congratulations! You win!");
     }
 }, 100);
 
