@@ -92,12 +92,12 @@ hero.addEventListener('animationend', function(){
     hero.classList.remove('jumping');
 })
 
+//set intervals to find x values for hero, enemy, and top value for hero
 setInterval(function(){
     let enemyX = parseInt(window.getComputedStyle(enemy).getPropertyValue('left'));
-    console.log(enemyX);
+
+    let heroX = parseInt(window.getComputedStyle(hero).getPropertyValue('left'));
+
+    let heroTop = parseInt(window.getComputedStyle(hero).getPropertyValue('top'));
 }, 100);
 
-setInterval(function(){
-    let heroX = parseInt(window.getComputedStyle(hero).getPropertyValue('left'));
-    console.log(heroX + 50);
-}, 100);
