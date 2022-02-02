@@ -99,5 +99,9 @@ setInterval(function(){
     let heroX = parseInt(window.getComputedStyle(hero).getPropertyValue('left'));
 
     let heroTop = parseInt(window.getComputedStyle(hero).getPropertyValue('top'));
+
+    if(enemyX < 50 && heroTop > 300) {
+        alert("Oops game over");
+    }
 }, 100);
 

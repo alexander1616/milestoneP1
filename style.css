@@ -32,7 +32,7 @@ body {
     background-color: red;
     top: 300px;
     left: 750px;
-    animation: enemy 1.5s 10;
+    animation: enemy 1.25s 10;
 }
 
 @keyframes enemy{
