@@ -78,15 +78,16 @@ score increases every duck you pause/remove
 start(0);
 */
 
+
 let hero = document.getElementById('hero');
 let enemy = document.getElementById('enemy');
 
+//Adding the jumping class to the hero which allows it to jump
 hero.addEventListener('click', function(){
     hero.classList.add('jumping');
-    if hero.compareDocumentPosition.left
-    getBoundingClientRect());
 })
 
+//Removing the jumping class on the hero after animation ends
 hero.addEventListener('animationend', function(){
     hero.classList.remove('jumping');
 })
