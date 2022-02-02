@@ -91,3 +91,13 @@ hero.addEventListener('click', function(){
 hero.addEventListener('animationend', function(){
     hero.classList.remove('jumping');
 })
+
+setInterval(function(){
+    let enemyX = parseInt(window.getComputedStyle(enemy).getPropertyValue('left'));
+    console.log(enemyX);
+}, 100);
+
+setInterval(function(){
+    let heroX = parseInt(window.getComputedStyle(hero).getPropertyValue('left'));
+    console.log(heroX + 50);
+}, 100);
