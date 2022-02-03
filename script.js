@@ -81,36 +81,71 @@ start(0);
 
 let hero = document.getElementById('hero');
 let enemy = document.getElementById('enemy');
+let playButton = document.querySelector('.play');
+let restartButton = document.querySelector('.restart');
+let playing;
 
-//Adding the jumping class to the hero which allows it to jump
-hero.addEventListener('click', function(){
-    hero.classList.add('jumping');
+restartButton.disabled = true;
+
+playButton.addEventListener('click', function () {
+    enemy.classList.add('enemy1');
+    restartButton.disabled = false;
+    startGame();
+
 })
 
-//Removing the jumping class on the hero after animation ends
-hero.addEventListener('animationend', function(){
+restartButton.addEventListener('click', function () {
+    jumps.innerText = 0;
+    announce.innerText = ('Goodluck here we go!');
+})
+
+function heroAdd(){
+    hero.classList.add('jumping');
+}
+
+function heroRemove(){
     hero.classList.remove('jumping');
     jumps.innerText++;
     announce.innerText = ('Keep going! Your score is:');
-})
+}
 
+function heroMoves(){
+
+    //Adding the jumping class to the hero which allows it to jump
+    hero.addEventListener('click', heroAdd);
+
+    //Removing the jumping class on the hero after animation ends
+    hero.addEventListener('animationend', heroRemove);
+
+    if (playing === false){
+        hero.removeEventListener('click', heroAdd);
+        hero.removeEventListener('animationend', heroRemove);
+    }
+}
 //set intervals to find x values for hero, enemy, and top value for hero
-setInterval(function(){
-    let enemyX = parseInt(window.getComputedStyle(enemy).getPropertyValue('left'));
 
-    let heroX = parseInt(window.getComputedStyle(hero).getPropertyValue('left'));
+function gameLogic(){
+setInterval(function () {
+    let enemyX = parseInt(window.getComputedStyle(enemy).getPropertyValue('left'));
 
     let heroTop = parseInt(window.getComputedStyle(hero).getPropertyValue('top'));
 
-    if(enemyX < 50 && heroTop > 300) {
+    if (enemyX < 50 && heroTop > 300) {
         announce.innerText = ('Oops! You lost, your score is:');
-       enemy.classList.remove('enemy1');
-        
+        enemy.classList.remove('enemy1');
+        playing = false;
+        return false;
     }
-    
-    if (jumps.innerText == 10){
-        alert("Congratulations! You win!");
-    }
-    
-}, 100);
 
+    if (jumps.innerText == 10) {
+        announce.innerText = ("Congratulations! You win!");
+    }
+}, 100);
+}
+
+function startGame(){
+    playing = true;
+    heroMoves();
+    gameLogic();
+    
+}
