@@ -23,7 +23,9 @@ body {
     height: 200px;
     border: 2px solid black;
     padding-top: 2em;
-    margin: auto;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
     background-color: white;
     text-align: center;
 }
