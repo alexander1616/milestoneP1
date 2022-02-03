@@ -5,6 +5,7 @@ let playButton = document.querySelector('.play');
 let restartButton = document.querySelector('.restart');
 let playing = false;
 
+//Manipulating Classes:
 function heroAdd() {
     hero.classList.add('jumping');
 }
@@ -16,21 +17,14 @@ function heroRemove() {
 }
 
 function heroMoves() {
-
-    //Adding the jumping class to the hero which allows it to jump
     hero.addEventListener('click', heroAdd);
-
-    //Removing the jumping class on the hero after animation ends
     hero.addEventListener('animationend', heroRemove);
-
 }
 
 function stopHero() {
     hero.removeEventListener('click', heroAdd);
     hero.removeEventListener('animationend', heroRemove);
-
 }
-//set intervals to find x values for hero, enemy, and top value for hero
 
 function stopEnemy() {
     enemy.classList.remove('enemy1');
@@ -38,9 +32,9 @@ function stopEnemy() {
 
 /* function stopEnemy2(){
     enemy.classList.remove('enemy2');
-}
-*/
+} */
 
+//Game Logic, checking collision values
 function gameLogic() {
     setInterval(function () {
         let enemyX = parseInt(window.getComputedStyle(enemy).getPropertyValue('left'));
@@ -53,7 +47,7 @@ function gameLogic() {
             announce.innerText = ('Oops! You lost, your score is:');
             stopEnemy();
             playing = false;
-            console.log(playing);
+          //  console.log(playing);
         }
 
         /*if (jumps.innerText == 5){
@@ -67,11 +61,12 @@ function gameLogic() {
             stopEnemy();
             stopHero();
             playing = false;
-            console.log(playing);
+           // console.log(playing);
         }
     }, 100);
 }
 
+//Start Game function and Buttons
 function startGame() {
     playing = true;
     heroMoves();
@@ -90,6 +85,7 @@ playButton.addEventListener('click', function () {
 restartButton.addEventListener('click', function () {
     jumps.innerText = 0;
     announce.innerText = ('Goodluck here we go!');
+    stopHero();
 })
 
-console.log(playing);
+//console.log(playing);
