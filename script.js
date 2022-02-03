@@ -91,6 +91,7 @@ hero.addEventListener('click', function(){
 hero.addEventListener('animationend', function(){
     hero.classList.remove('jumping');
     jumps.innerText++;
+    announce.innerText = ('Keep going! Your score is:');
 })
 
 //set intervals to find x values for hero, enemy, and top value for hero
@@ -102,12 +103,14 @@ setInterval(function(){
     let heroTop = parseInt(window.getComputedStyle(hero).getPropertyValue('top'));
 
     if(enemyX < 50 && heroTop > 300) {
-        alert("Game over! Play again?");
-        location.reload();
+        announce.innerText = ('Oops! You lost, your score is:');
+       enemy.classList.remove('enemy1');
+        
     }
     
     if (jumps.innerText == 10){
         alert("Congratulations! You win!");
     }
+    
 }, 100);
 
