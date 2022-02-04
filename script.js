@@ -46,6 +46,7 @@ function gameLogic() {
         if (enemyX < 50 && heroTop > 300) {
             announce.innerText = ('Oops! You lost, your score is:');
             stopEnemy();
+            stopHero();
             playing = false;
           //  console.log(playing);
         }
@@ -71,21 +72,32 @@ function startGame() {
     playing = true;
     heroMoves();
     gameLogic();
+    enemy.classList.add('enemy1');
+    restartButton.disabled = false;
+    console.log(playing);
 }
 
 restartButton.disabled = true;
 
 playButton.addEventListener('click', function () {
-    startGame();
-    enemy.classList.add('enemy1');
-    restartButton.disabled = false;
-    console.log(playing);
+    var timeleft = 3;
+    var timer = setInterval(function(){
+        if(timeleft <= 0){
+            clearInterval(timer);
+        }
+        announce.innerText = ("Game starts in: " + timeleft);
+        timeleft -=1;
+    }, 1000);
+
+    setTimeout(startGame, 4000);
+    
 })
 
 restartButton.addEventListener('click', function () {
-    jumps.innerText = 0;
-    announce.innerText = ('Goodluck here we go!');
-    stopHero();
+    //jumps.innerText = 0;
+    //announce.innerText = ('Goodluck here we go!');
+    //stopHero();
+    location.reload();
 })
 
 //console.log(playing);
