@@ -1,0 +1,26 @@
+{
+  "name": "milestoneP1",
+  "version": "1.0.0",
+  "description": "Santa's Snowballs:",
+  "main": "script.js",
+  "dependencies": {
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node build/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexander1616/milestoneP1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexander1616/milestoneP1/issues"
+  },
+  "homepage": "https://github.com/alexander1616/milestoneP1#readme"
+}
